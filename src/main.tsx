@@ -1,10 +1,27 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";
+import App from "./App";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+import persistor, { store } from "./store";
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+import { PersistGate } from "redux-persist/integration/react";
+import { SidebarProvider } from "./context/sidebarContext";
+
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement
+);
+root.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <SidebarProvider>
+      <Provider store={store}>
+        <PersistGate persistor={persistor}>
+          <App />
+        </PersistGate>
+      </Provider>
+    </SidebarProvider>
+  </React.StrictMode>
+);
+
+reportWebVitals();
