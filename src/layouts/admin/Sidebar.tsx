@@ -5,7 +5,7 @@ import logo from "../../assets/images/logo.png";
 import "../../assets/scss/layouts/admin/sidebar.scss";
 import { useContext } from "react";
 import { SidebarContext } from "../../context/sidebarContext";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { navigationLinks } from "../../assets/data/data";
 
 const Sidebar = () => {
@@ -36,6 +36,10 @@ const Sidebar = () => {
     }
   }, [isSidebarOpen]);
 
+  const handleLinkClick = (id: number) => {
+    setActiveLinkIdx(id);
+  };
+
   return (
     <div className={`sidebar ${sidebarClass}`}>
       <div className="user-info">
@@ -49,11 +53,28 @@ const Sidebar = () => {
 
       <nav className="nav">
         <ul className="nav-list">
-          <li className="nav-list-item">Hello</li>
-          <li className="nav-list-item">Hello</li>
-          <li className="nav-list-item">Hello</li>
+          {navigationLinks.map((navigationLink) => (
+            <li className="nav-list-item" key={navigationLink.id}>
+              <Link
+                className={`${borderRadius} nav-list-item-link ${navigationLink.id === activeLinkIdx ? "active" : ""
+                  }`}
+                onClick={() => handleLinkClick(navigationLink.id)}
+                to={navigationLink.link}
+              >
+                <div className="nav-list-item-link-icon">
+                  {navigationLink.image &&
+                    React.createElement(navigationLink.image)}
+                </div>
+                <span className={`nav-list-item-link-text ${sidebarText}`}>
+                  {navigationLink.title}
+                </span>
+              </Link>
+
+            </li>
+          ))}
         </ul>
       </nav>
+
     </div>
   );
 };

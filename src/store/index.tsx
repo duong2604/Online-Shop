@@ -15,6 +15,7 @@ import {
   REHYDRATE,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import patternApi, { patternReducer } from "../services/pattern";
 
 const persistConfig = {
   key: "root",
@@ -22,7 +23,9 @@ const persistConfig = {
   whitelist: [],
 };
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  [patternApi.reducerPath]: patternReducer,
+});
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
@@ -33,7 +36,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(),
+    }).concat(patternApi.middleware),
 });
 
 export type AppDispatch = typeof store.dispatch;
