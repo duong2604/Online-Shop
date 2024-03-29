@@ -3,11 +3,11 @@
 import { useNavigate, useParams } from "react-router-dom";
 import "../../../assets/scss/layouts/admin/appointments.scss";
 import { Button, Form, Input, message } from "antd";
-import { TPattern } from "../../../schema/pattern";
+import { TBrand } from "../../../schema/brand";
 import {
-  usePatternByIdQuery,
-  useUpdatePatternMutation,
-} from "../../../services/pattern";
+  useBrandByIdQuery,
+  useUpdateBrandMutation,
+} from "../../../services/brand";
 import { format } from "date-fns"; // Thêm import để định dạng thời gian
 import { useEffect } from "react";
 import "react-quill/dist/quill.snow.css";
@@ -20,45 +20,40 @@ const cancel = () => {
   message.error("Cập nhật không thành công.");
 };
 import { useState } from "react"; // Import useState hook
-import ReactQuill from "react-quill";
-import TextArea from "antd/es/input/TextArea";
 
-const EditPattern = () => {
+const EditBrand = () => {
   const navigate = useNavigate();
-  const [value, setValue] = useState("");
   const { id } = useParams<{ id: string }>();
-  const pattern = usePatternByIdQuery(Number(id));
+  const brand = useBrandByIdQuery(Number(id));
   const [form] = Form.useForm();
   const [updateTime, setUpdateTime] = useState<string>(
     format(new Date(), "yyyy-MM-dd HH:mm:ss")
   ); // Tạo biến update time
 
-  const [updatePatternMutation, { reset }] = useUpdatePatternMutation();
+  const [updateBrandMutation, { reset }] = useUpdateBrandMutation();
 
   useEffect(() => {
     form.setFieldsValue({
-      id: pattern.data?.id,
-      ten_hoa_tiet: pattern.data?.ten_hoa_tiet,
-      create_date: pattern.data?.create_date,
-      update_date: pattern.data?.update_date,
-      mo_ta: pattern.data?.mo_ta,
+      id: brand.data?.id,
+      ten_thuong_hieu: brand.data?.ten_thuong_hieu,
+      create_date: brand.data?.create_date,
+      update_date: brand.data?.update_date,
     });
   }, [
     form,
-    pattern.data?.id,
-    pattern.data?.ten_hoa_tiet,
-    pattern.data?.create_date,
-    pattern.data?.update_date,
-    pattern.data?.mo_ta,
+    brand.data?.id,
+    brand.data?.ten_thuong_hieu,
+    brand.data?.create_date,
+    brand.data?.update_date,
   ]);
 
-  const onFinish = async (values: TPattern) => {
+  const onFinish = async (values: TBrand) => {
     try {
       const updatedValues = { ...values, update_date: updateTime }; // Gán giá trị mới cho update_date
-      await updatePatternMutation(updatedValues).unwrap();
+      await updateBrandMutation(updatedValues).unwrap();
       confirm();
       reset();
-      navigate("/admin/pattern");
+      navigate("/admin/brand");
     } catch (error) {
       cancel();
       console.error("Lỗi cập nhật:", error);
@@ -72,10 +67,10 @@ const EditPattern = () => {
 
   return (
     <>
-      <h2 className="title-appoiment">Cập nhật họa tiết</h2>
+      <h2 className="title-appoiment">Cập nhật kích thước</h2>
       <Form
         form={form}
-        name="updatePatternForm"
+        name="updateBrandForm"
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
         layout="vertical"
@@ -84,7 +79,11 @@ const EditPattern = () => {
           <Input disabled />
         </Form.Item>
 
-        <Form.Item name="ten_hoa_tiet" label="Tên" rules={[{ required: true }]}>
+        <Form.Item
+          name="ten_thuong_hieu"
+          label="Tên thương hiệu"
+          rules={[{ required: true }]}
+        >
           <Input />
         </Form.Item>
 
@@ -101,10 +100,6 @@ const EditPattern = () => {
           <Input disabled />
         </Form.Item>
 
-        <Form.Item name="mo_ta" label="Mô tả" rules={[{ required: true }]}>
-          <TextArea rows={4} />
-        </Form.Item>
-
         <Form.Item>
           <Button type="primary" htmlType="submit" style={{ float: "right" }}>
             Cập nhật
@@ -115,4 +110,4 @@ const EditPattern = () => {
   );
 };
 
-export default EditPattern;
+export default EditBrand;

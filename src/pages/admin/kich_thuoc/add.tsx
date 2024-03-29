@@ -1,20 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import type { FormInstance } from "antd";
-import { Button, Form, Input, Space, message } from "antd";
+import { Button, Form, Input, Select, Space, message } from "antd";
 import {
-  useCreatePatternMutation,
-  usePatternQuery,
-} from "../../../services/pattern";
+  useCreateSizeeMutation,
+  useSizeeQuery,
+} from "../../../services/kich_thuoc";
 import "../../../assets/scss/layouts/admin/appointments.scss";
 import { format } from "date-fns"; // Thêm import để định dạng thời gian
-
 import { useNavigate } from "react-router-dom";
-import TextArea from "antd/es/input/TextArea";
+import { useSizeQuery } from "../../../services/kich_co";
+import { TSize } from "../../../schema/kich_co";
 
 const SubmitButton = ({ form }: { form: FormInstance }) => {
   const [submittable, setSubmittable] = React.useState(false);
-
   const values = Form.useWatch([], form);
 
   React.useEffect(() => {
@@ -35,35 +34,37 @@ const SubmitButton = ({ form }: { form: FormInstance }) => {
   );
 };
 
-const AddPatternAdmin: React.FC = () => {
+const AddSizeeAdmin: React.FC = () => {
   const [form] = Form.useForm();
 
-  const [createPattern] = useCreatePatternMutation();
+  const [createSizee] = useCreateSizeeMutation();
 
   const navigate = useNavigate();
 
-  const { refetch } = usePatternQuery();
+  const size = useSizeQuery();
+
+  const { refetch } = useSizeeQuery();
 
   const handleFormSubmit = async (values: any) => {
     try {
       const currentDate = new Date(); // Lấy thời gian hiện tại
       const formattedCurrentDate = format(currentDate, "yyyy-MM-dd HH:mm:ss"); // Định dạng thời gian
       const updatedValues = { ...values, create_date: formattedCurrentDate }; // Thêm create_date vào dữ liệu
-      await createPattern(updatedValues); // Gửi dữ liệu lên máy chủ
+      await createSizee(updatedValues); // Gửi dữ liệu lên máy chủ
 
-      message.success("Họa tiết đã được thêm thành công.");
+      message.success("Thêm thành công.");
 
       refetch();
 
-      navigate("/admin/pattern");
+      navigate("/admin/sizee");
     } catch (error: any) {
-      message.error("Lỗi khi Thêm họa tiết: " + error.message);
+      message.error("Lỗi khi thêm: " + error.message);
     }
   };
 
   return (
     <>
-      <h2 className="title-appoiment">Thêm họa tiết</h2>
+      <h2 className="title-appoiment">Thêm kích thước</h2>
       <Form
         form={form}
         name="validateOnly"
@@ -71,15 +72,11 @@ const AddPatternAdmin: React.FC = () => {
         autoComplete="off"
         onFinish={handleFormSubmit}
       >
-        <Form.Item name="ten_hoa_tiet" label="Tên" rules={[{ required: true }]}>
-          <Input />
-        </Form.Item>
-
         <Form.Item
           name="create_date"
           label="Thời gian tạo"
-          initialValue={format(new Date(), "yyyy-MM-dd HH:mm:ss")} // Giá trị mặc định là thời gian hiện tại
-          hidden // Ẩn trường này để không cho người dùng nhập
+          initialValue={format(new Date(), "yyyy-MM-dd HH:mm:ss")}
+          hidden
         >
           <Input disabled />
         </Form.Item>
@@ -88,8 +85,42 @@ const AddPatternAdmin: React.FC = () => {
           <Input disabled />
         </Form.Item>
 
-        <Form.Item name="mo_ta" label="Mô tả" rules={[{ required: true }]}>
-        <TextArea rows={4} />
+        <Form.Item
+          name="chieu_cao"
+          label="Chiều cao"
+          rules={[{ required: true }]}
+        >
+          <Input />
+        </Form.Item>
+
+        <Form.Item
+          name="chieu_dai"
+          label="Chiều dài"
+          rules={[{ required: true }]}
+        >
+          <Input />
+        </Form.Item>
+
+        <Form.Item
+          name="chieu_rong"
+          label="Chiều rộng"
+          rules={[{ required: true }]}
+        >
+          <Input />
+        </Form.Item>
+
+        <Form.Item
+          rules={[{ required: true, message: "Vui lòng chọn!" }]}
+          name="kich_co_id"
+          label="ID kích cỡ"
+        >
+          <Select>
+            {size.data?.map((item: TSize) => (
+              <Select.Option key={item.id} value={item.id}>
+                {item.id}
+              </Select.Option>
+            ))}
+          </Select>
         </Form.Item>
 
         <Form.Item>
@@ -103,4 +134,4 @@ const AddPatternAdmin: React.FC = () => {
   );
 };
 
-export default AddPatternAdmin;
+export default AddSizeeAdmin;

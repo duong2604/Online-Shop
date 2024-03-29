@@ -16,6 +16,10 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import patternApi, { patternReducer } from "../services/pattern";
+import sizeApi, { sizeReducer } from "../services/kich_co";
+import sizeeApi, { sizeeReducer } from "../services/kich_thuoc";
+import brandApi, { brandReducer } from "../services/brand";
+import materialApi, { materialReducer } from "../services/material";
 
 const persistConfig = {
   key: "root",
@@ -25,6 +29,10 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   [patternApi.reducerPath]: patternReducer,
+  [sizeApi.reducerPath]: sizeReducer,
+  [sizeeApi.reducerPath]: sizeeReducer,
+  [brandApi.reducerPath]: brandReducer,
+  [materialApi.reducerPath]: materialReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -36,7 +44,13 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(patternApi.middleware),
+    }).concat(
+      patternApi.middleware,
+      sizeApi.middleware,
+      sizeeApi.middleware,
+      brandApi.middleware,
+      materialApi.middleware
+    ),
 });
 
 export type AppDispatch = typeof store.dispatch;

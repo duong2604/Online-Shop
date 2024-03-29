@@ -11,15 +11,78 @@
       "id": 5,
       "ten_hoa_tiet": "test update",
       "create_date": "2024-03-29 00:37:37",
-      "update_date": "2024-03-29 01:13:17",
+      "update_date": "2024-03-30 00:29:33",
       "mo_ta": "test update"
     },
     {
       "id": 6,
       "ten_hoa_tiet": "test",
       "create_date": "2024-03-29 01:04:20",
-      "update_date": "2024-03-29 01:13:34",
-      "mo_ta": "test"
+      "update_date": "2024-03-29 23:49:50",
+      "mo_ta": "<p><strong><em>mô tả fix react quill</em> </strong></p>"
+    }
+  ],
+  "material": [
+    {
+      "id": 2,
+      "ten_chat_lieu": "têst update",
+      "create_date": "2024-03-30 02:53:14",
+      "update_date": "2024-03-30 02:53:18",
+      "mo_ta": "tets update"
+    }
+  ],
+  "size": [
+    {
+      "ten_kich_co": "kích cỡ 1",
+      "create_date": "2024-03-30 01:08:33",
+      "id": 5
+    },
+    {
+      "id": 6,
+      "ten_kich_co": "test 2 update",
+      "create_date": "2024-03-30 01:12:36",
+      "update_date": "2024-03-30 01:13:09"
+    }
+  ],
+  "brand": [
+    {
+      "id": 2,
+      "ten_thuong_hieu": "test update",
+      "create_date": "2024-03-30 02:11:33",
+      "update_date": "2024-03-30 02:12:03"
+    },
+    {
+      "ten_thuong_hieu": "teddt",
+      "create_date": "2024-03-30 02:12:35",
+      "id": 3
+    }
+  ],
+  "sizee": [
+    {
+      "id": 1,
+      "create_date": "2024-03-30 01:12:36",
+      "update_date": "2024-03-30 01:13:09",
+      "chieu_cao": "2",
+      "chieu_dai": "3",
+      "chieu_rong": "4",
+      "kich_co_id": 6
+    },
+    {
+      "create_date": "2024-03-30 01:37:20",
+      "chieu_cao": "4",
+      "chieu_dai": "5",
+      "chieu_rong": "6",
+      "kich_co_id": "1",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "create_date": "2024-03-30 01:46:41",
+      "update_date": "2024-03-30 01:58:03",
+      "chieu_cao": "1",
+      "chieu_dai": "1",
+      "chieu_rong": "1",
+      "kich_co_id": 5
     }
   ]
 }

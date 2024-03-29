@@ -2,15 +2,11 @@
 import React from "react";
 import type { FormInstance } from "antd";
 import { Button, Form, Input, Space, message } from "antd";
-import {
-  useCreatePatternMutation,
-  usePatternQuery,
-} from "../../../services/pattern";
+import { useCreateSizeMutation, useSizeQuery } from "../../../services/kich_co";
 import "../../../assets/scss/layouts/admin/appointments.scss";
 import { format } from "date-fns"; // Thêm import để định dạng thời gian
 
 import { useNavigate } from "react-router-dom";
-import TextArea from "antd/es/input/TextArea";
 
 const SubmitButton = ({ form }: { form: FormInstance }) => {
   const [submittable, setSubmittable] = React.useState(false);
@@ -35,35 +31,35 @@ const SubmitButton = ({ form }: { form: FormInstance }) => {
   );
 };
 
-const AddPatternAdmin: React.FC = () => {
+const AddSizeAdmin: React.FC = () => {
   const [form] = Form.useForm();
 
-  const [createPattern] = useCreatePatternMutation();
+  const [createSize] = useCreateSizeMutation();
 
   const navigate = useNavigate();
 
-  const { refetch } = usePatternQuery();
+  const { refetch } = useSizeQuery();
 
   const handleFormSubmit = async (values: any) => {
     try {
       const currentDate = new Date(); // Lấy thời gian hiện tại
       const formattedCurrentDate = format(currentDate, "yyyy-MM-dd HH:mm:ss"); // Định dạng thời gian
       const updatedValues = { ...values, create_date: formattedCurrentDate }; // Thêm create_date vào dữ liệu
-      await createPattern(updatedValues); // Gửi dữ liệu lên máy chủ
+      await createSize(updatedValues); // Gửi dữ liệu lên máy chủ
 
-      message.success("Họa tiết đã được thêm thành công.");
+      message.success("Thêm thành công.");
 
       refetch();
 
-      navigate("/admin/pattern");
+      navigate("/admin/size");
     } catch (error: any) {
-      message.error("Lỗi khi Thêm họa tiết: " + error.message);
+      message.error("Lỗi khi thêm: " + error.message);
     }
   };
 
   return (
     <>
-      <h2 className="title-appoiment">Thêm họa tiết</h2>
+      <h2 className="title-appoiment">Thêm kích cỡ</h2>
       <Form
         form={form}
         name="validateOnly"
@@ -71,7 +67,7 @@ const AddPatternAdmin: React.FC = () => {
         autoComplete="off"
         onFinish={handleFormSubmit}
       >
-        <Form.Item name="ten_hoa_tiet" label="Tên" rules={[{ required: true }]}>
+        <Form.Item name="ten_kich_co" label="Tên" rules={[{ required: true }]}>
           <Input />
         </Form.Item>
 
@@ -88,10 +84,6 @@ const AddPatternAdmin: React.FC = () => {
           <Input disabled />
         </Form.Item>
 
-        <Form.Item name="mo_ta" label="Mô tả" rules={[{ required: true }]}>
-        <TextArea rows={4} />
-        </Form.Item>
-
         <Form.Item>
           <Space style={{ float: "right" }}>
             <SubmitButton form={form} />
@@ -103,4 +95,4 @@ const AddPatternAdmin: React.FC = () => {
   );
 };
 
-export default AddPatternAdmin;
+export default AddSizeAdmin;

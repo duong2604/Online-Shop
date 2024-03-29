@@ -3,9 +3,9 @@ import React from "react";
 import type { FormInstance } from "antd";
 import { Button, Form, Input, Space, message } from "antd";
 import {
-  useCreatePatternMutation,
-  usePatternQuery,
-} from "../../../services/pattern";
+  useCreateMaterialMutation,
+  useMaterialQuery,
+} from "../../../services/material";
 import "../../../assets/scss/layouts/admin/appointments.scss";
 import { format } from "date-fns"; // Thêm import để định dạng thời gian
 
@@ -35,35 +35,35 @@ const SubmitButton = ({ form }: { form: FormInstance }) => {
   );
 };
 
-const AddPatternAdmin: React.FC = () => {
+const AddMaterialAdmin: React.FC = () => {
   const [form] = Form.useForm();
 
-  const [createPattern] = useCreatePatternMutation();
+  const [createMaterial] = useCreateMaterialMutation();
 
   const navigate = useNavigate();
 
-  const { refetch } = usePatternQuery();
+  const { refetch } = useMaterialQuery();
 
   const handleFormSubmit = async (values: any) => {
     try {
       const currentDate = new Date(); // Lấy thời gian hiện tại
       const formattedCurrentDate = format(currentDate, "yyyy-MM-dd HH:mm:ss"); // Định dạng thời gian
       const updatedValues = { ...values, create_date: formattedCurrentDate }; // Thêm create_date vào dữ liệu
-      await createPattern(updatedValues); // Gửi dữ liệu lên máy chủ
+      await createMaterial(updatedValues); // Gửi dữ liệu lên máy chủ
 
-      message.success("Họa tiết đã được thêm thành công.");
+      message.success("Thêm thành công.");
 
       refetch();
 
-      navigate("/admin/pattern");
+      navigate("/admin/material");
     } catch (error: any) {
-      message.error("Lỗi khi Thêm họa tiết: " + error.message);
+      message.error("Lỗi khi thêm: " + error.message);
     }
   };
 
   return (
     <>
-      <h2 className="title-appoiment">Thêm họa tiết</h2>
+      <h2 className="title-appoiment">Thêm chất liệu</h2>
       <Form
         form={form}
         name="validateOnly"
@@ -71,7 +71,11 @@ const AddPatternAdmin: React.FC = () => {
         autoComplete="off"
         onFinish={handleFormSubmit}
       >
-        <Form.Item name="ten_hoa_tiet" label="Tên" rules={[{ required: true }]}>
+        <Form.Item
+          name="ten_chat_lieu"
+          label="Tên chất liệu"
+          rules={[{ required: true }]}
+        >
           <Input />
         </Form.Item>
 
@@ -89,7 +93,7 @@ const AddPatternAdmin: React.FC = () => {
         </Form.Item>
 
         <Form.Item name="mo_ta" label="Mô tả" rules={[{ required: true }]}>
-        <TextArea rows={4} />
+          <TextArea rows={4} />
         </Form.Item>
 
         <Form.Item>
@@ -103,4 +107,4 @@ const AddPatternAdmin: React.FC = () => {
   );
 };
 
-export default AddPatternAdmin;
+export default AddMaterialAdmin;

@@ -1,19 +1,23 @@
+import BrandIcon from "../svg/brandIcon";
 import HomeIcon from "../svg/homeIcon";
+import kich_co_icon from "../svg/kich_co_icon";
+import kich_thuoc_icon from "../svg/kich_thuoc_icon";
 import OrderIcon from "../svg/orderIcon";
+import PatternIcon from "../svg/patternIcon";
 import ProductIcon from "../svg/productIcon";
 
 export const navigationLinks = [
   { id: 1, title: "Thống kê", image: HomeIcon, link: "/admin" },
   { id: 2, title: "Đơn hàng", image: OrderIcon, link: "menu" },
   { id: 3, title: "Sản phẩm", image: ProductIcon, link: "product" },
-  { id: 21, title: "Chi tiết SP", image: ProductIcon, link: "product" },
-  { id: 4, title: "Họa tiết", image: ProductIcon, link: "pattern" },
-  { id: 5, title: "Thương hiệu", image: ProductIcon, link: "brand" },
-  { id: 6, title: "Kích thước", image: ProductIcon, link: "kich_thuoc" },
-  { id: 7, title: "Kích cỡ", image: ProductIcon, link: "kich_co" },
-  { id: 8, title: "Loại SP", image: ProductIcon, link: "kich_co" },
-  { id: 9, title: "Chất liệu", image: ProductIcon, link: "kich_co" },
+  // { id: 21, title: "Chi tiết SP", image: ProductIcon, link: "product" },
+  { id: 4, title: "Họa tiết", image: PatternIcon, link: "pattern" },
+  { id: 5, title: "Thương hiệu", image: BrandIcon, link: "brand" },
+  { id: 6, title: "Kích thước", image: kich_thuoc_icon, link: "sizee" },
+  { id: 7, title: "Kích cỡ", image: kich_co_icon, link: "size" },
+  { id: 9, title: "Chất liệu", image: ProductIcon, link: "material" },
   { id: 10, title: "CL dây đeo", image: ProductIcon, link: "kich_co" },
+  { id: 8, title: "Loại SP", image: ProductIcon, link: "kich_co" },
   { id: 11, title: "Kiểu khóa", image: ProductIcon, link: "kich_co" },
   { id: 12, title: "Hàng", image: ProductIcon, link: "kich_co" },
   { id: 13, title: "Số Ngân", image: ProductIcon, link: "kich_co" },
