@@ -4,6 +4,7 @@ import compartmentIcon from "../svg/compartmentIcon";
 import HomeIcon from "../svg/homeIcon";
 import kich_co_icon from "../svg/kich_co_icon";
 import kich_thuoc_icon from "../svg/kich_thuoc_icon";
+import LockTypeIcon from "../svg/lockTypeIcon";
 import OrderIcon from "../svg/orderIcon";
 import PatternIcon from "../svg/patternIcon";
 import ProductIcon from "../svg/productIcon";
@@ -27,9 +28,9 @@ export const navigationLinks = [
   },
   { id: 17, title: "Màu sắc", image: ColorIcon, link: "color" },
   { id: 13, title: "Số Ngăn", image: compartmentIcon, link: "compartment" },
-  { id: 8, title: "Loại SP", image: ProductIcon, link: "kich_co" },
-  { id: 11, title: "Kiểu khóa", image: ProductIcon, link: "kich_co" },
-  { id: 12, title: "Hàng", image: ProductIcon, link: "kich_co" },
+  { id: 8, title: "Loại SP", image: ProductIcon, link: "productType" },
+  { id: 11, title: "Kiểu khóa", image: LockTypeIcon, link: "lockType" },
+  { id: 12, title: "Hàng", image: ProductIcon, link: "hang" },
   { id: 14, title: "Người dùng", image: ProductIcon, link: "kich_co" },
   { id: 15, title: "Vai trò", image: ProductIcon, link: "kich_co" },
   { id: 16, title: "Khách hàng", image: ProductIcon, link: "kich_co" },

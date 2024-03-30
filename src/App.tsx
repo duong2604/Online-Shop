@@ -26,6 +26,15 @@ import EditColor from "./pages/admin/color/edit";
 import CompartmentAdmin from "./pages/admin/compartment/list";
 import AddCompartmentAdmin from "./pages/admin/compartment/add";
 import EditCompartment from "./pages/admin/compartment/edit";
+import ProductTypeAdmin from "./pages/admin/productType/list";
+import AddProductTypeAdmin from "./pages/admin/productType/add";
+import EditProductType from "./pages/admin/productType/edit";
+import LockTypeAdmin from "./pages/admin/lockType/list";
+import AddLockTypeAdmin from "./pages/admin/lockType/add";
+import EditLockType from "./pages/admin/lockType/edit";
+import HangAdmin from "./pages/admin/hang/list";
+import AddHangAdmin from "./pages/admin/hang/add";
+import EditHang from "./pages/admin/hang/edit";
 
 function App() {
   const [dateTime] = useState(localStorage.getItem("DateTime"));
@@ -94,6 +103,24 @@ function App() {
             <Route index element={<CompartmentAdmin />} />
             <Route path="add" element={<AddCompartmentAdmin />} />
             <Route path="edit/:id" element={<EditCompartment />} />
+          </Route>
+
+          <Route path="productType">
+            <Route index element={<ProductTypeAdmin />} />
+            <Route path="add" element={<AddProductTypeAdmin />} />
+            <Route path="edit/:id" element={<EditProductType />} />
+          </Route>
+
+          <Route path="lockType">
+            <Route index element={<LockTypeAdmin />} />
+            <Route path="add" element={<AddLockTypeAdmin />} />
+            <Route path="edit/:id" element={<EditLockType />} />
+          </Route>
+
+          <Route path="hang">
+            <Route index element={<HangAdmin />} />
+            <Route path="add" element={<AddHangAdmin />} />
+            <Route path="edit/:id" element={<EditHang />} />
           </Route>
         </Route>
       </Routes>

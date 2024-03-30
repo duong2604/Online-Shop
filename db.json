@@ -40,6 +40,32 @@
       "update_date": "2024-03-30 13:16:31"
     }
   ],
+  "productType": [
+    {
+      "id": 2,
+      "ten_loai": "test update",
+      "ma_loai": "test update",
+      "create_date": "2024-03-30 14:29:24",
+      "update_date": "2024-03-30 14:29:28"
+    }
+  ],
+  "hang": [
+    {
+      "id": 3,
+      "ten_hang": "test update",
+      "ma_hang": "test update",
+      "create_date": "2024-03-30 15:25:43",
+      "update_date": "2024-03-30 15:25:46"
+    }
+  ],
+  "lockType": [
+    {
+      "id": 3,
+      "ten_kieu_khoa": "test update",
+      "create_date": "2024-03-30 14:47:54",
+      "update_date": "2024-03-30 14:47:59"
+    }
+  ],
   "size": [
     {
       "ten_kich_co": "kích cỡ 1",

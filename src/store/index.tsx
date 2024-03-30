@@ -25,6 +25,9 @@ import strapMaterialApi, {
 } from "../services/strapMaterial";
 import colorApi, { colorReducer } from "../services/color";
 import compartmentApi, { compartmentReducer } from "../services/compartment";
+import productTypeApi, { productTypeReducer } from "../services/productType";
+import lockTypeApi, { lockTypeReducer } from "../services/lockType";
+import hangApi, { hangReducer } from "../services/hang";
 
 const persistConfig = {
   key: "root",
@@ -41,6 +44,9 @@ const rootReducer = combineReducers({
   [strapMaterialApi.reducerPath]: strapMaterialReducer,
   [colorApi.reducerPath]: colorReducer,
   [compartmentApi.reducerPath]: compartmentReducer,
+  [productTypeApi.reducerPath]: productTypeReducer,
+  [lockTypeApi.reducerPath]: lockTypeReducer,
+  [hangApi.reducerPath]: hangReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -53,6 +59,9 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }).concat(
+      hangApi.middleware,
+      lockTypeApi.middleware,
+      productTypeApi.middleware,
       patternApi.middleware,
       sizeApi.middleware,
       sizeeApi.middleware,
