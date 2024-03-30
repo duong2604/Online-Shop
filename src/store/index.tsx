@@ -20,6 +20,11 @@ import sizeApi, { sizeReducer } from "../services/kich_co";
 import sizeeApi, { sizeeReducer } from "../services/kich_thuoc";
 import brandApi, { brandReducer } from "../services/brand";
 import materialApi, { materialReducer } from "../services/material";
+import strapMaterialApi, {
+  strapMaterialReducer,
+} from "../services/strapMaterial";
+import colorApi, { colorReducer } from "../services/color";
+import compartmentApi, { compartmentReducer } from "../services/compartment";
 
 const persistConfig = {
   key: "root",
@@ -33,6 +38,9 @@ const rootReducer = combineReducers({
   [sizeeApi.reducerPath]: sizeeReducer,
   [brandApi.reducerPath]: brandReducer,
   [materialApi.reducerPath]: materialReducer,
+  [strapMaterialApi.reducerPath]: strapMaterialReducer,
+  [colorApi.reducerPath]: colorReducer,
+  [compartmentApi.reducerPath]: compartmentReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -49,7 +57,10 @@ export const store = configureStore({
       sizeApi.middleware,
       sizeeApi.middleware,
       brandApi.middleware,
-      materialApi.middleware
+      materialApi.middleware,
+      strapMaterialApi.middleware,
+      compartmentApi.middleware,
+      colorApi.middleware
     ),
 });
 

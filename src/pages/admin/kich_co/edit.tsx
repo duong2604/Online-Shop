@@ -67,7 +67,7 @@ const EditSize = () => {
 
   return (
     <>
-      <h2 className="title-appoiment">Cập nhật kích thước</h2>
+      <h2 className="title-appoiment">Cập nhật kích cỡ</h2>
       <Form
         form={form}
         name="updateSizeForm"

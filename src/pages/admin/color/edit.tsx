@@ -3,11 +3,11 @@
 import { useNavigate, useParams } from "react-router-dom";
 import "../../../assets/scss/layouts/admin/appointments.scss";
 import { Button, Form, Input, message } from "antd";
-import { TBrand } from "../../../schema/brand";
+import { TColor } from "../../../schema/color";
 import {
-  useBrandByIdQuery,
-  useUpdateBrandMutation,
-} from "../../../services/brand";
+  useColorByIdQuery,
+  useUpdateColorMutation,
+} from "../../../services/color";
 import { format } from "date-fns"; // Thêm import để định dạng thời gian
 import { useEffect } from "react";
 import "react-quill/dist/quill.snow.css";
@@ -21,39 +21,41 @@ const cancel = () => {
 };
 import { useState } from "react"; // Import useState hook
 
-const EditBrand = () => {
+const EditColor = () => {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
-  const brand = useBrandByIdQuery(Number(id));
+  const color = useColorByIdQuery(Number(id));
   const [form] = Form.useForm();
   const [updateTime, setUpdateTime] = useState<string>(
     format(new Date(), "yyyy-MM-dd HH:mm:ss")
   ); // Tạo biến update time
 
-  const [updateBrandMutation, { reset }] = useUpdateBrandMutation();
+  const [updateColorMutation, { reset }] = useUpdateColorMutation();
 
   useEffect(() => {
     form.setFieldsValue({
-      id: brand.data?.id,
-      ten_thuong_hieu: brand.data?.ten_thuong_hieu,
-      create_date: brand.data?.create_date,
-      update_date: brand.data?.update_date,
+      id: color.data?.id,
+      ten_mau: color.data?.ten_mau,
+      ma_mau: color.data?.ma_mau,
+      create_date: color.data?.create_date,
+      update_date: color.data?.update_date,
     });
   }, [
     form,
-    brand.data?.id,
-    brand.data?.ten_thuong_hieu,
-    brand.data?.create_date,
-    brand.data?.update_date,
+    color.data?.id,
+    color.data?.ten_mau,
+    color.data?.ma_mau,
+    color.data?.create_date,
+    color.data?.update_date,
   ]);
 
-  const onFinish = async (values: TBrand) => {
+  const onFinish = async (values: TColor) => {
     try {
       const updatedValues = { ...values, update_date: updateTime }; // Gán giá trị mới cho update_date
-      await updateBrandMutation(updatedValues).unwrap();
+      await updateColorMutation(updatedValues).unwrap();
       confirm();
       reset();
-      navigate("/admin/brand");
+      navigate("/admin/color");
     } catch (error) {
       cancel();
       console.error("Lỗi cập nhật:", error);
@@ -67,7 +69,7 @@ const EditBrand = () => {
 
   return (
     <>
-      <h2 className="title-appoiment">Cập nhật thương hiệu</h2>
+      <h2 className="title-appoiment">Cập nhật màu sắc</h2>
       <Form
         form={form}
         name="updateBrandForm"
@@ -79,11 +81,11 @@ const EditBrand = () => {
           <Input disabled />
         </Form.Item>
 
-        <Form.Item
-          name="ten_thuong_hieu"
-          label="Tên thương hiệu"
-          rules={[{ required: true }]}
-        >
+        <Form.Item name="ten_mau" label="Tên màu" rules={[{ required: true }]}>
+          <Input />
+        </Form.Item>
+
+        <Form.Item name="ma_mau" label="Mã màu" rules={[{ required: true }]}>
           <Input />
         </Form.Item>
 
@@ -110,4 +112,4 @@ const EditBrand = () => {
   );
 };
 
-export default EditBrand;
+export default EditColor;

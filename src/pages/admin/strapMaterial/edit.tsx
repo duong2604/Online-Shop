@@ -3,11 +3,11 @@
 import { useNavigate, useParams } from "react-router-dom";
 import "../../../assets/scss/layouts/admin/appointments.scss";
 import { Button, Form, Input, message } from "antd";
-import { TBrand } from "../../../schema/brand";
+import { TStrapMaterial } from "../../../schema/strapMaterial";
 import {
-  useBrandByIdQuery,
-  useUpdateBrandMutation,
-} from "../../../services/brand";
+  useStrapMaterialByIdQuery,
+  useUpdateStrapMaterialMutation,
+} from "../../../services/strapMaterial";
 import { format } from "date-fns"; // Thêm import để định dạng thời gian
 import { useEffect } from "react";
 import "react-quill/dist/quill.snow.css";
@@ -21,39 +21,40 @@ const cancel = () => {
 };
 import { useState } from "react"; // Import useState hook
 
-const EditBrand = () => {
+const EditStrapMaterial = () => {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
-  const brand = useBrandByIdQuery(Number(id));
+  const strapMaterial = useStrapMaterialByIdQuery(Number(id));
   const [form] = Form.useForm();
   const [updateTime, setUpdateTime] = useState<string>(
     format(new Date(), "yyyy-MM-dd HH:mm:ss")
   ); // Tạo biến update time
 
-  const [updateBrandMutation, { reset }] = useUpdateBrandMutation();
+  const [updateStrapMaterialMutation, { reset }] =
+    useUpdateStrapMaterialMutation();
 
   useEffect(() => {
     form.setFieldsValue({
-      id: brand.data?.id,
-      ten_thuong_hieu: brand.data?.ten_thuong_hieu,
-      create_date: brand.data?.create_date,
-      update_date: brand.data?.update_date,
+      id: strapMaterial.data?.id,
+      ten_chat_lieu_day_deo: strapMaterial.data?.ten_chat_lieu_day_deo,
+      create_date: strapMaterial.data?.create_date,
+      update_date: strapMaterial.data?.update_date,
     });
   }, [
     form,
-    brand.data?.id,
-    brand.data?.ten_thuong_hieu,
-    brand.data?.create_date,
-    brand.data?.update_date,
+    strapMaterial.data?.id,
+    strapMaterial.data?.ten_chat_lieu_day_deo,
+    strapMaterial.data?.create_date,
+    strapMaterial.data?.update_date,
   ]);
 
-  const onFinish = async (values: TBrand) => {
+  const onFinish = async (values: TStrapMaterial) => {
     try {
       const updatedValues = { ...values, update_date: updateTime }; // Gán giá trị mới cho update_date
-      await updateBrandMutation(updatedValues).unwrap();
+      await updateStrapMaterialMutation(updatedValues).unwrap();
       confirm();
       reset();
-      navigate("/admin/brand");
+      navigate("/admin/strapMaterial");
     } catch (error) {
       cancel();
       console.error("Lỗi cập nhật:", error);
@@ -67,10 +68,10 @@ const EditBrand = () => {
 
   return (
     <>
-      <h2 className="title-appoiment">Cập nhật thương hiệu</h2>
+      <h2 className="title-appoiment">Cập nhật chất liệu dây đeo</h2>
       <Form
         form={form}
-        name="updateBrandForm"
+        name="updateSizeForm"
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
         layout="vertical"
@@ -80,8 +81,8 @@ const EditBrand = () => {
         </Form.Item>
 
         <Form.Item
-          name="ten_thuong_hieu"
-          label="Tên thương hiệu"
+          name="ten_chat_lieu_day_deo"
+          label="Tên chất liệu dây đeo"
           rules={[{ required: true }]}
         >
           <Input />
@@ -110,4 +111,4 @@ const EditBrand = () => {
   );
 };
 
-export default EditBrand;
+export default EditStrapMaterial;

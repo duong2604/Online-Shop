@@ -31,6 +31,15 @@
       "mo_ta": "tets update"
     }
   ],
+  "color": [
+    {
+      "id": 2,
+      "ten_mau": "test update",
+      "ma_mau": "test update",
+      "create_date": "2024-03-30 13:16:26",
+      "update_date": "2024-03-30 13:16:31"
+    }
+  ],
   "size": [
     {
       "ten_kich_co": "kích cỡ 1",
@@ -42,6 +51,22 @@
       "ten_kich_co": "test 2 update",
       "create_date": "2024-03-30 01:12:36",
       "update_date": "2024-03-30 01:13:09"
+    }
+  ],
+  "strapMaterial": [
+    {
+      "id": 2,
+      "ten_chat_lieu_day_deo": "test update",
+      "create_date": "2024-03-30 12:58:45",
+      "update_date": "2024-03-30 12:58:49"
+    }
+  ],
+  "compartment": [
+    {
+      "id": 2,
+      "ten_so_ngan": "tesst update",
+      "create_date": "2024-03-30 13:32:21",
+      "update_date": "2024-03-30 13:32:25"
     }
   ],
   "brand": [
