@@ -38,6 +38,9 @@ import EditHang from "./pages/admin/hang/edit";
 import CategoryAdmin from "./pages/admin/category/list";
 import AddCategoryAdmin from "./pages/admin/category/add";
 import EditCategory from "./pages/admin/category/edit";
+import NewsAdmin from "./pages/admin/news/list";
+import AddNewsAdmin from "./pages/admin/news/add";
+import EditNews from "./pages/admin/news/edit";
 
 function App() {
   const [dateTime] = useState(localStorage.getItem("DateTime"));
@@ -130,6 +133,12 @@ function App() {
             <Route index element={<CategoryAdmin />} />
             <Route path="add" element={<AddCategoryAdmin />} />
             <Route path="edit/:id" element={<EditCategory />} />
+          </Route>
+
+          <Route path="news">
+            <Route index element={<NewsAdmin />} />
+            <Route path="add" element={<AddNewsAdmin />} />
+            <Route path="edit/:id" element={<EditNews />} />
           </Route>
         </Route>
       </Routes>

@@ -29,6 +29,7 @@ import productTypeApi, { productTypeReducer } from "../services/productType";
 import lockTypeApi, { lockTypeReducer } from "../services/lockType";
 import hangApi, { hangReducer } from "../services/hang";
 import categoryApi, { categoryReducer } from "../services/category";
+import newsApi, { newsReducer } from "../services/news";
 
 const persistConfig = {
   key: "root",
@@ -49,6 +50,7 @@ const rootReducer = combineReducers({
   [lockTypeApi.reducerPath]: lockTypeReducer,
   [hangApi.reducerPath]: hangReducer,
   [categoryApi.reducerPath]: categoryReducer,
+  [newsApi.reducerPath]: newsReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -61,6 +63,7 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }).concat(
+      newsApi.middleware,
       categoryApi.middleware,
       hangApi.middleware,
       lockTypeApi.middleware,

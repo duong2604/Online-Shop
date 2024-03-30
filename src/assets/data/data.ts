@@ -6,6 +6,7 @@ import HomeIcon from "../svg/homeIcon";
 import kich_co_icon from "../svg/kich_co_icon";
 import kich_thuoc_icon from "../svg/kich_thuoc_icon";
 import LockTypeIcon from "../svg/lockTypeIcon";
+import NewsIcon from "../svg/newsIcon";
 import OrderIcon from "../svg/orderIcon";
 import PatternIcon from "../svg/patternIcon";
 import ProductIcon from "../svg/productIcon";
@@ -37,7 +38,7 @@ export const navigationLinks = [
   { id: 15, title: "Vai trò", image: ProductIcon, link: "kich_co" },
   { id: 16, title: "Khách hàng", image: ProductIcon, link: "kich_co" },
   { id: 19, title: "Đợt giảm giá", image: ProductIcon, link: "kich_co" },
-  { id: 20, title: "SP danh mục", image: ProductIcon, link: "kich_co" },
+  { id: 20, title: "Tin tức", image: NewsIcon, link: "news" },
   { id: 22, title: "DM AD mã giảm giá", image: ProductIcon, link: "kich_co" },
   { id: 23, title: "SP danh mục", image: ProductIcon, link: "kich_co" },
   { id: 24, title: "SP danh mục", image: ProductIcon, link: "kich_co" },
