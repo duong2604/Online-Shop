@@ -28,6 +28,7 @@ import compartmentApi, { compartmentReducer } from "../services/compartment";
 import productTypeApi, { productTypeReducer } from "../services/productType";
 import lockTypeApi, { lockTypeReducer } from "../services/lockType";
 import hangApi, { hangReducer } from "../services/hang";
+import categoryApi, { categoryReducer } from "../services/category";
 
 const persistConfig = {
   key: "root",
@@ -47,6 +48,7 @@ const rootReducer = combineReducers({
   [productTypeApi.reducerPath]: productTypeReducer,
   [lockTypeApi.reducerPath]: lockTypeReducer,
   [hangApi.reducerPath]: hangReducer,
+  [categoryApi.reducerPath]: categoryReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -59,6 +61,7 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }).concat(
+      categoryApi.middleware,
       hangApi.middleware,
       lockTypeApi.middleware,
       productTypeApi.middleware,

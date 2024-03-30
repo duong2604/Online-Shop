@@ -58,6 +58,16 @@
       "update_date": "2024-03-30 15:25:46"
     }
   ],
+  "category": [
+    {
+      "id": 2,
+      "ten_danh_muc": "test",
+      "ma_danh_muc": "test update",
+      "is_parent": "2",
+      "create_date": "2024-03-30 16:17:34",
+      "update_date": "2024-03-30 16:19:06"
+    }
+  ],
   "lockType": [
     {
       "id": 3,

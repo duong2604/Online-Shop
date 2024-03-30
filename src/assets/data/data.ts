@@ -1,4 +1,5 @@
 import BrandIcon from "../svg/brandIcon";
+import CategoryIcon from "../svg/categoryIcon";
 import ColorIcon from "../svg/colorIcon";
 import compartmentIcon from "../svg/compartmentIcon";
 import HomeIcon from "../svg/homeIcon";
@@ -31,10 +32,10 @@ export const navigationLinks = [
   { id: 8, title: "Loại SP", image: ProductIcon, link: "productType" },
   { id: 11, title: "Kiểu khóa", image: LockTypeIcon, link: "lockType" },
   { id: 12, title: "Hàng", image: ProductIcon, link: "hang" },
+  { id: 18, title: "Danh mục", image: CategoryIcon, link: "category" },
   { id: 14, title: "Người dùng", image: ProductIcon, link: "kich_co" },
   { id: 15, title: "Vai trò", image: ProductIcon, link: "kich_co" },
   { id: 16, title: "Khách hàng", image: ProductIcon, link: "kich_co" },
-  { id: 18, title: "Danh mục", image: ProductIcon, link: "kich_co" },
   { id: 19, title: "Đợt giảm giá", image: ProductIcon, link: "kich_co" },
   { id: 20, title: "SP danh mục", image: ProductIcon, link: "kich_co" },
   { id: 22, title: "DM AD mã giảm giá", image: ProductIcon, link: "kich_co" },
