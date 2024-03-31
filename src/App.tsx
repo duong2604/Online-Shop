@@ -41,6 +41,30 @@ import EditCategory from "./pages/admin/category/edit";
 import NewsAdmin from "./pages/admin/news/list";
 import AddNewsAdmin from "./pages/admin/news/add";
 import EditNews from "./pages/admin/news/edit";
+import DiscountCodeAdmin from "./pages/admin/discountCode/list";
+import AddDiscountCodeAdmin from "./pages/admin/discountCode/add";
+import EditDiscountCode from "./pages/admin/discountCode/edit";
+import EditRole from "./pages/admin/role/edit";
+import RoleAdmin from "./pages/admin/role/list";
+import AddRoleAdmin from "./pages/admin/role/add";
+import UserAdmin from "./pages/admin/user/list";
+import EditUser from "./pages/admin/user/edit";
+import ClientAdmin from "./pages/admin/client/list";
+import AddClientAdmin from "./pages/admin/client/add";
+import EditClient from "./pages/admin/client/edit";
+import ContactAdmin from "./pages/admin/contact/list";
+import EditContact from "./pages/admin/contact/edit";
+import EditCommentStatus from "./pages/admin/commentStatus/edit";
+import AddCommentStatusAdmin from "./pages/admin/commentStatus/add";
+import CommentStatusAdmin from "./pages/admin/commentStatus/list";
+import CommentAdmin from "./pages/admin/comment/list";
+import EditComment from "./pages/admin/comment/edit";
+import StaffAdmin from "./pages/admin/staff/list";
+import AddStaffAdmin from "./pages/admin/staff/add";
+import EditStaff from "./pages/admin/staff/edit";
+import ProductAdmin from "./pages/admin/product/list";
+import AddProductAdmin from "./pages/admin/product/add";
+import EditProduct from "./pages/admin/product/edit";
 
 function App() {
   const [dateTime] = useState(localStorage.getItem("DateTime"));
@@ -111,6 +135,12 @@ function App() {
             <Route path="edit/:id" element={<EditCompartment />} />
           </Route>
 
+          <Route path="product">
+            <Route index element={<ProductAdmin />} />
+            <Route path="add" element={<AddProductAdmin />} />
+            <Route path="edit/:id" element={<EditProduct />} />
+          </Route>
+
           <Route path="productType">
             <Route index element={<ProductTypeAdmin />} />
             <Route path="add" element={<AddProductTypeAdmin />} />
@@ -129,6 +159,12 @@ function App() {
             <Route path="edit/:id" element={<EditHang />} />
           </Route>
 
+          <Route path="staff">
+            <Route index element={<StaffAdmin />} />
+            <Route path="add" element={<AddStaffAdmin />} />
+            <Route path="edit/:id" element={<EditStaff />} />
+          </Route>
+
           <Route path="category">
             <Route index element={<CategoryAdmin />} />
             <Route path="add" element={<AddCategoryAdmin />} />
@@ -139,6 +175,45 @@ function App() {
             <Route index element={<NewsAdmin />} />
             <Route path="add" element={<AddNewsAdmin />} />
             <Route path="edit/:id" element={<EditNews />} />
+          </Route>
+
+          <Route path="discountCode">
+            <Route index element={<DiscountCodeAdmin />} />
+            <Route path="add" element={<AddDiscountCodeAdmin />} />
+            <Route path="edit/:id" element={<EditDiscountCode />} />
+          </Route>
+
+          <Route path="commentStatus">
+            <Route index element={<CommentStatusAdmin />} />
+            <Route path="add" element={<AddCommentStatusAdmin />} />
+            <Route path="edit/:id" element={<EditCommentStatus />} />
+          </Route>
+
+          <Route path="role">
+            <Route index element={<RoleAdmin />} />
+            <Route path="add" element={<AddRoleAdmin />} />
+            <Route path="edit/:id" element={<EditRole />} />
+          </Route>
+
+          <Route path="client">
+            <Route index element={<ClientAdmin />} />
+            <Route path="add" element={<AddClientAdmin />} />
+            <Route path="edit/:id" element={<EditClient />} />
+          </Route>
+
+          <Route path="contact">
+            <Route index element={<ContactAdmin />} />
+            <Route path="edit/:id" element={<EditContact />} />
+          </Route>
+
+          <Route path="user">
+            <Route index element={<UserAdmin />} />
+            <Route path="edit/:id" element={<EditUser />} />
+          </Route>
+
+          <Route path="comment">
+            <Route index element={<CommentAdmin />} />
+            <Route path="edit/:id" element={<EditComment />} />
           </Route>
         </Route>
       </Routes>

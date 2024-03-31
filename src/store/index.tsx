@@ -30,6 +30,17 @@ import lockTypeApi, { lockTypeReducer } from "../services/lockType";
 import hangApi, { hangReducer } from "../services/hang";
 import categoryApi, { categoryReducer } from "../services/category";
 import newsApi, { newsReducer } from "../services/news";
+import discountCodeApi, { discountCodeReducer } from "../services/discountCode";
+import roleApi, { roleReducer } from "../services/role";
+import userApi, { userReducer } from "../services/user";
+import clientApi, { clientReducer } from "../services/client";
+import contactApi, { contactReducer } from "../services/contact";
+import commentStatusApi, {
+  commentStatusReducer,
+} from "../services/commentStatus";
+import commentApi, { commentReducer } from "../services/comment";
+import staffApi, { staffReducer } from "../services/staff";
+import productApi, { productReducer } from "../services/product";
 
 const persistConfig = {
   key: "root",
@@ -51,6 +62,15 @@ const rootReducer = combineReducers({
   [hangApi.reducerPath]: hangReducer,
   [categoryApi.reducerPath]: categoryReducer,
   [newsApi.reducerPath]: newsReducer,
+  [discountCodeApi.reducerPath]: discountCodeReducer,
+  [roleApi.reducerPath]: roleReducer,
+  [userApi.reducerPath]: userReducer,
+  [clientApi.reducerPath]: clientReducer,
+  [contactApi.reducerPath]: contactReducer,
+  [commentStatusApi.reducerPath]: commentStatusReducer,
+  [commentApi.reducerPath]: commentReducer,
+  [staffApi.reducerPath]: staffReducer,
+  [productApi.reducerPath]: productReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -63,6 +83,15 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }).concat(
+      productApi.middleware,
+      staffApi.middleware,
+      commentApi.middleware,
+      commentStatusApi.middleware,
+      contactApi.middleware,
+      clientApi.middleware,
+      userApi.middleware,
+      roleApi.middleware,
+      discountCodeApi.middleware,
       newsApi.middleware,
       categoryApi.middleware,
       hangApi.middleware,

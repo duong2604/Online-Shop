@@ -1,4 +1,109 @@
 {
+  "role": [
+    {
+      "id": 3,
+      "role_name": "test update",
+      "create_date": "2024-03-31 13:59:34",
+      "update_date": "2024-03-31 14:00:46"
+    }
+  ],
+  "product": [
+    {
+      "id": 2,
+      "ten_san_pham": "test update",
+      "ma_san_pham": "test update",
+      "phu_hop_su_dung": "test update",
+      "mo_ta": "test update",
+      "chat_lieu_day_deo_id": 2,
+      "chat_lieu_id": 2,
+      "hoa_tiet_id": 5,
+      "kich_thuoc_id": 1,
+      "kieu_khoa_id": 3,
+      "loai_san_pham_id": 2,
+      "so_ngan_id": 2,
+      "thuong_hieu_id": 2,
+      "create_date": "2024-03-31 23:24:24",
+      "update_date": "2024-03-31 23:24:28"
+    }
+  ],
+  "comment": [
+    {
+      "id": 3,
+      "ho_ten": "test update",
+      "email": "test update",
+      "sdt": "test update",
+      "noi_dung": "test update",
+      "diem_danh_gia": "test update",
+      "chi_tiet_san_pham_id": "test update",
+      "trang_thai_binh_luan": 5,
+      "create_date": "2024-03-31 13:59:34",
+      "update_date": "2024-03-31 21:44:20"
+    }
+  ],
+  "staff": [
+    {
+      "id": 4,
+      "ten_nhan_vien": "test update",
+      "image": "http://res.cloudinary.com/dksgvucji/image/upload/v1711899918/duantotnghiep/fnqtvicz0u4wpxdqqdln.jpg",
+      "ngay_sinh": "1/1/2002",
+      "so_dien_thoai": "111111111",
+      "gioi_tinh": "nữ",
+      "cccd": "33333333",
+      "dia_chi": "HNn",
+      "user_id": 1,
+      "create_date": "2024-03-31 22:45:21",
+      "update_date": "2024-03-31 22:45:59"
+    }
+  ],
+  "commentStatus": [
+    {
+      "id": 4,
+      "comment_status_name": "test update",
+      "create_date": "2024-03-31 21:25:35",
+      "update_date": "2024-03-31 21:25:42"
+    },
+    {
+      "comment_status_name": "test",
+      "create_date": "2024-03-31 21:25:38",
+      "id": 5
+    }
+  ],
+  "client": [
+    {
+      "id": 2,
+      "ten_khach_hang": "test",
+      "ngay_sinh": "1/1/2001",
+      "so_dien_thoai": "1231231231",
+      "email": "thanh@gmail.com",
+      "diem_tich_luy": "321321",
+      "hang_id": 3,
+      "user_id": 1,
+      "kich_hoat_email": "1",
+      "create_date": "2024-03-31 14:39:33",
+      "update_date": "2024-03-31 14:44:43"
+    }
+  ],
+  "contact": [
+    {
+      "id": 2,
+      "ho_ten": "test",
+      "so_dien_thoai": "1231231231",
+      "email": "thanh@gmail.com",
+      "noi_dung": "1",
+      "create_date": "2024-03-31 14:39:33",
+      "update_date": "2024-03-31 14:44:43"
+    }
+  ],
+  "user": [
+    {
+      "id": 1,
+      "user_name": "test",
+      "email": "thanh1@gmail.com",
+      "password": "123123",
+      "create_date": "2024-03-31 13:59:34",
+      "update_date": "2024-03-31 14:06:28"
+    }
+  ],
   "pattern": [
     {
       "id": 4,
@@ -61,8 +166,16 @@
   "news": [
     {
       "id": 3,
+      "title": "test upate",
+      "image": "http://res.cloudinary.com/dksgvucji/image/upload/v1711814766/duantotnghiep/gpv4oes3aaldny5ccwft.jpg",
+      "content": "<p><strong><em>test update</em></strong></p>",
+      "create_date": "2024-03-30 15:25:43",
+      "update_date": "2024-03-30 23:05:57"
+    },
+    {
+      "id": 4,
       "title": "test",
-      "image": "http://res.cloudinary.com/dksgvucji/image/upload/v1711796364/duantotnghiep/futbtqardvpyz7rjbg8a.jpg",
+      "image": "https://picsum.photos/200/300",
       "content": "<p>test update</p><p><br></p>",
       "create_date": "2024-03-30 15:25:43",
       "update_date": "2024-03-30 17:59:08"
@@ -76,6 +189,14 @@
       "is_parent": "2",
       "create_date": "2024-03-30 16:17:34",
       "update_date": "2024-03-30 16:19:06"
+    },
+    {
+      "id": 3,
+      "ten_danh_muc": "test",
+      "ma_danh_muc": "test update",
+      "is_parent": "1",
+      "create_date": "2024-03-30 23:08:30",
+      "update_date": "2024-03-30 23:08:34"
     }
   ],
   "lockType": [
@@ -149,11 +270,38 @@
     {
       "id": 3,
       "create_date": "2024-03-30 01:46:41",
-      "update_date": "2024-03-30 01:58:03",
+      "update_date": "2024-03-30 23:09:41",
       "chieu_cao": "1",
       "chieu_dai": "1",
       "chieu_rong": "1",
-      "kich_co_id": 5
+      "kich_co_id": 6
+    }
+  ],
+  "discountCode": [
+    {
+      "ten_dot_giam_gia": "test",
+      "gia_tri_giam_hd": "test",
+      "loai_giam_gia_hd": "test",
+      "loai_uu_dai": "test",
+      "so_tien_hoa_don_yeu_cau": "123123",
+      "ngay_bat_dau": "2024-03-30T14:32:57.500Z",
+      "ngay_ket_thuc": "2024-03-31T01:08:00.000Z",
+      "trang_thai_dot_giam_gia": "test",
+      "create_date": "2024-03-30 21:26:12",
+      "id": 5
+    },
+    {
+      "id": 6,
+      "ten_dot_giam_gia": "test",
+      "gia_tri_giam_hd": "test",
+      "loai_giam_gia_hd": "test",
+      "loai_uu_dai": "test",
+      "so_tien_hoa_don_yeu_cau": "444",
+      "ngay_bat_dau": "2024-04-02T17:00:00.000Z",
+      "ngay_ket_thuc": "2024-04-03T17:00:00.000Z",
+      "trang_thai_dot_giam_gia": "test",
+      "create_date": "2024-03-30 22:08:58",
+      "update_date": "2024-03-31 12:01:18"
     }
   ]
 }
