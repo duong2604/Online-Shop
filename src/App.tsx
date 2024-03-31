@@ -65,6 +65,10 @@ import EditStaff from "./pages/admin/staff/edit";
 import ProductAdmin from "./pages/admin/product/list";
 import AddProductAdmin from "./pages/admin/product/add";
 import EditProduct from "./pages/admin/product/edit";
+import BillAdmin from "./pages/admin/bill/list";
+import SaleAdmin from "./pages/admin/sale/list";
+import AddSaleAdmin from "./pages/admin/sale/add";
+import EditSale from "./pages/admin/sale/edit";
 
 function App() {
   const [dateTime] = useState(localStorage.getItem("DateTime"));
@@ -97,6 +101,12 @@ function App() {
             <Route index element={<SizeAdmin />} />
             <Route path="add" element={<AddSizeAdmin />} />
             <Route path="edit/:id" element={<EditSize />} />
+          </Route>
+
+          <Route path="sale">
+            <Route index element={<SaleAdmin />} />
+            <Route path="add" element={<AddSaleAdmin />} />
+            <Route path="edit/:id" element={<EditSale />} />
           </Route>
 
           <Route path="brand">
@@ -214,6 +224,10 @@ function App() {
           <Route path="comment">
             <Route index element={<CommentAdmin />} />
             <Route path="edit/:id" element={<EditComment />} />
+          </Route>
+
+          <Route path="bill">
+            <Route index element={<BillAdmin />} />
           </Route>
         </Route>
       </Routes>

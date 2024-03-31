@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useNavigate, useParams } from "react-router-dom";
 import "../../../assets/scss/layouts/admin/appointments.scss";
-import { Button, DatePicker, Form, Input, message } from "antd";
+import { Button, Form, Input, message } from "antd";
 import { TDiscountCode } from "../../../schema/discountCode";
 import {
   useDiscountCodeByIdQuery,
@@ -80,27 +80,11 @@ const EditDiscountCode = () => {
     console.log("Failed:", errorInfo);
   };
 
-  const [selectedStartDate, setSelectedStartDate] = useState(null);
-  const [selectedEndDate, setSelectedEndDate] = useState(null);
-
-  const handleStartDateChange = (value: any) => {
-    setSelectedStartDate(value);
-    form.setFieldsValue({ ngay_bat_dau: value });
-  };
-
   const validatePositiveInteger = (_: any, value: any) => {
     if (value && !/^[1-9]\d*$/.test(value)) {
       return Promise.reject("Vui lòng nhập số nguyên dương.");
     }
     return Promise.resolve();
-  };
-
-  const disabledDate = (current: any) => {
-    return current && current < new Date();
-  };
-  const handleEndDateChange = (value: any) => {
-    setSelectedEndDate(value);
-    form.setFieldsValue({ ngay_ket_thuc: value });
   };
 
   return (
@@ -168,13 +152,7 @@ const EditDiscountCode = () => {
           label="Ngày bắt đầu"
           rules={[{ required: true }]}
         >
-          <DatePicker
-            showTime
-            format="YYYY-MM-DD HH:mm"
-            onChange={handleStartDateChange}
-            value={selectedStartDate}
-            disabledDate={disabledDate}
-          />
+          <Input />
         </Form.Item>
 
         <Form.Item
@@ -182,13 +160,7 @@ const EditDiscountCode = () => {
           label="Ngày kết thúc"
           rules={[{ required: true }]}
         >
-          {/* <DatePicker
-            showTime
-            format="YYYY-MM-DD HH:mm"
-            onChange={handleEndDateChange}
-            value={selectedEndDate}
-            disabledDate={disabledDate}
-          /> */}
+          <Input />
         </Form.Item>
 
         <Form.Item

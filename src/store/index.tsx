@@ -41,6 +41,8 @@ import commentStatusApi, {
 import commentApi, { commentReducer } from "../services/comment";
 import staffApi, { staffReducer } from "../services/staff";
 import productApi, { productReducer } from "../services/product";
+import billApi, { billReducer } from "../services/bill";
+import saleApi, { saleReducer } from "../services/sale";
 
 const persistConfig = {
   key: "root",
@@ -71,6 +73,8 @@ const rootReducer = combineReducers({
   [commentApi.reducerPath]: commentReducer,
   [staffApi.reducerPath]: staffReducer,
   [productApi.reducerPath]: productReducer,
+  [billApi.reducerPath]: billReducer,
+  [saleApi.reducerPath]: saleReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -83,6 +87,8 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }).concat(
+      saleApi.middleware,
+      billApi.middleware,
       productApi.middleware,
       staffApi.middleware,
       commentApi.middleware,

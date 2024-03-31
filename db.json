@@ -7,6 +7,96 @@
       "update_date": "2024-03-31 14:00:46"
     }
   ],
+  "sale": [
+    {
+      "id": 1,
+      "create_date": "2024-03-31 13:59:34",
+      "update_date": "2024-03-31 14:00:46",
+      "gia_tri_giam_hd": 123,
+      "trang_thai_ma_giam_gia": 1,
+      "loai_giam_gia_hd": 2,
+      "loai_uu_dai": 1,
+      "ma_giam_gia": "12312c231",
+      "mo_ta": "test",
+      "ngay_bat_dau": "1/1/2001",
+      "ngay_ket_thuc": "1/1/2001",
+      "so_tien_hoa_don_yeu_cau": 123,
+      "tieu_de": "test",
+      "so_luong": 123,
+      "hang_id": 2,
+      "chi_tiet_san_pham_id": 5,
+      "danh_muc_ap_dung_id": 2,
+      "san_pham_ap_dung_id": 3,
+      "da_su_dung": 2,
+      "gioi_han_su_dung": 1
+    },
+    {
+      "id": 2,
+      "gia_tri_giam_hd": "123",
+      "trang_thai_ma_giam_gia": "3123",
+      "loai_giam_gia_hd": "123",
+      "loai_uu_dai": "123",
+      "ma_giam_gia": "1dfs1",
+      "mo_ta": "ádwer",
+      "ngay_bat_dau": "1/1/2001",
+      "ngay_ket_thuc": "2/1/2002",
+      "so_tien_hoa_don_yeu_cau": "213",
+      "tieu_de": "test",
+      "so_luong": "12",
+      "hang_id": 3,
+      "chi_tiet_san_pham_id": "1",
+      "danh_muc_ap_dung_id": "1",
+      "san_pham_ap_dung_id": "1",
+      "da_su_dung": "1",
+      "gioi_han_su_dung": "1",
+      "create_date": "2024-04-01 01:52:51",
+      "update_date": "2024-04-01 01:59:52"
+    }
+  ],
+  "bill": [
+    {
+      "id": 1,
+      "ghi_chu": "test update",
+      "hinh_thuc_mua_hang": 1,
+      "hinh_thuc_thanh_toan": 2,
+      "ma_hoa_don": "test update",
+      "ngay_lap": "1/1/2001",
+      "phi_ship": 123,
+      "tien_giam_ship": 321,
+      "tong_tien_duoc_giam_event": 321,
+      "tong_tien_duoc_giam_voucher": 123,
+      "tong_tien_tam_tinh": 123,
+      "tong_tien_thanh_toan": 123,
+      "trang_thai_hoa_don": 2,
+      "dia_chi_id": 5,
+      "khach_hang_id": 2,
+      "nhan_vien_id": 3,
+      "nhan_duoc_tien": 2,
+      "da_thanh_toan": 1,
+      "nhan_vien_xac_nhan_id": 8
+    },
+    {
+      "id": 2,
+      "ghi_chu": "test update",
+      "hinh_thuc_mua_hang": 1,
+      "hinh_thuc_thanh_toan": 2,
+      "ma_hoa_don": "test update",
+      "ngay_lap": "1/1/2001",
+      "phi_ship": 123,
+      "tien_giam_ship": 321,
+      "tong_tien_duoc_giam_event": 321,
+      "tong_tien_duoc_giam_voucher": 123,
+      "tong_tien_tam_tinh": 123,
+      "tong_tien_thanh_toan": 123,
+      "trang_thai_hoa_don": 2,
+      "dia_chi_id": 5,
+      "khach_hang_id": 2,
+      "nhan_vien_id": 3,
+      "nhan_duoc_tien": 2,
+      "da_thanh_toan": 1,
+      "nhan_vien_xac_nhan_id": 8
+    }
+  ],
   "product": [
     {
       "id": 2,
@@ -279,16 +369,17 @@
   ],
   "discountCode": [
     {
+      "id": 5,
       "ten_dot_giam_gia": "test",
       "gia_tri_giam_hd": "test",
       "loai_giam_gia_hd": "test",
       "loai_uu_dai": "test",
       "so_tien_hoa_don_yeu_cau": "123123",
-      "ngay_bat_dau": "2024-03-30T14:32:57.500Z",
-      "ngay_ket_thuc": "2024-03-31T01:08:00.000Z",
+      "ngay_bat_dau": "2024-04-17T07:04",
+      "ngay_ket_thuc": "2024-04-15T06:08",
       "trang_thai_dot_giam_gia": "test",
       "create_date": "2024-03-30 21:26:12",
-      "id": 5
+      "update_date": "2024-04-01 02:03:56"
     },
     {
       "id": 6,

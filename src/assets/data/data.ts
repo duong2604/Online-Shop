@@ -17,7 +17,8 @@ import UsersIcon from "../svg/usersIcon";
 
 export const navigationLinks = [
   { id: 1, title: "Thống kê", image: HomeIcon, link: "/admin" },
-  { id: 2, title: "Đơn hàng", image: OrderIcon, link: "menu" },
+  { id: 2, title: "Đơn hàng", image: OrderIcon, link: "order" },
+  { id: 26, title: "Hóa đơn", image: OrderIcon, link: "bill" },
   { id: 3, title: "Sản phẩm", image: ProductIcon, link: "product" },
   { id: 4, title: "Họa tiết", image: PatternIcon, link: "pattern" },
   { id: 5, title: "Thương hiệu", image: BrandIcon, link: "brand" },
@@ -39,8 +40,8 @@ export const navigationLinks = [
   { id: 14, title: "Người dùng", image: UsersIcon, link: "user" },
   { id: 15, title: "Vai trò", image: UsersIcon, link: "role" },
   { id: 16, title: "Khách hàng", image: UsersIcon, link: "client" },
-  { id: 19, title: "Đợt giảm giá", image: TicketIcon, link: "sale" },
-  { id: 22, title: "Mã giảm giá", image: TicketIcon, link: "discountCode" },
+  { id: 19, title: "Đợt giảm giá", image: TicketIcon, link: "discountCode" },
+  { id: 22, title: "Mã giảm giá", image: TicketIcon, link: "sale" },
   { id: 20, title: "Tin tức", image: NewsIcon, link: "news" },
   { id: 23, title: "Liên hệ", image: ContactIcon, link: "contact" },
   { id: 21, title: "Bình luận", image: ProductIcon, link: "comment" },
